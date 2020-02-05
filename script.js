@@ -1,0 +1,1 @@
+console.log("Your Javascript is officially linked!");
