@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+ 
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <div id="dogDiv">
+    <h1>The Dog Page!!!</h1>
+    <div id = "dogContent"> </div>
+    <img id="dogImg">
+    <h2>Choose Dog Breed</h2>
+    <form class="form-inline">
+      <div class="form-group mb-2 d-inline">
+        <input type="text" class="form-control d-inline" id="dogSearch">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2 d-inline" id="dogSearchBtn"><i
+          class="fa fa-search"></i></button>
+    </form>
+    <div id="alertDog" class="alert alert-danger hide alert-dismissible fade show" role="alert">
+      <p>Couldn't find that dog! Please try again</p>
+      <button type="button" class="close" data-hide="alert" aria-label="Close" onclick="alertHide()">
+        <span aria-hidden="true">&times;</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
