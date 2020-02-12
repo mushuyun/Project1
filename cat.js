@@ -7,6 +7,7 @@
 //var zipcode = "27704";
 $("#submitBtn").on("click", function(){
     var breed = $("#breed").val();
+    breed = breed.charAt(0).toUpperCase() + breed.slice(1);
     var sex = $("#sex").val();
     var zip = $("#zip").val();
     $.ajax({
