@@ -8,6 +8,7 @@ $("#submitBtn").on("click", function(event) {
     var animalType = $("#animalType").val();
     console.log(animalType);
     var breedType = $("#breed").val();
+    breedType = breedType.charAt(0).toUpperCase() + breedType.slice(1);
     console.log(breedType);
     var sex = $("#sex").val();
     console.log(sex);
