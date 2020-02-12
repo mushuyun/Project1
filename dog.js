@@ -85,7 +85,7 @@ window.onload = function () {
 
   function apiCall() {
 
-    var url = "http://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466" + "&animal=" + animalType + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip + "&format=json";
+    var url = "https://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466" + "&animal=" + animalType + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip + "&format=json";
     //var url = "http://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466" +"&animal=" + animalType + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip +"&format=json";
     $.ajax({
       url: url,
@@ -275,7 +275,7 @@ window.onload = function () {
     destination = mqQuery;
 
 
-    var queryURL = "http://www.mapquestapi.com/directions/v2/route?key=oKGNJy7554W39K4kH01ZGPwNamd85M0c&from=" + current + "&to=" + destination;
+    var queryURL = "https://www.mapquestapi.com/directions/v2/route?key=oKGNJy7554W39K4kH01ZGPwNamd85M0c&from=" + current + "&to=" + destination;
 
     console.log(queryURL);
     $.ajax({
