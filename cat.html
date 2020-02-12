@@ -1,105 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
- 
-  <link rel="stylesheet" href="style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/cat.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->      
 </head>
-
 <body>
-  <div class="container">
-    <!-- <div id = "catDiv">
-      <h1>Cat Page!!!!</h1>
-      <div id="catContent"></div>
-      <img id="catImg">
-      <h2>Choose Cat Breed</h2>
-      <form class="form-inline">
-        <div class="form-group mb-2 d-inline">
-          <input type="text" class="form-control d-inline" id="catSearch">
-        </div>
-        <button type="submit" class="btn btn-primary mb-2 d-inline" id="catSearchBtn"><i
-            class="fa fa-search"></i></button>
-      </form>
-      <div id="alertCat" class="alert alert-danger hide alert-dismissible fade show" role="alert">
-        <p>Couldn't find that cat breed! Please try again</p>
-        <button type="button" class="close" data-hide="alert" aria-label="Close" onclick="alertHide()">
-          <span aria-hidden="true">&times;</span>
-      </div>
-      
-  </div> -->
-  
-    <form>
-        <label for="retrieve-number"></label>
-        <input type="text" id="breed" placeholder="First letter Capital for Breed"><br>
-        <label for="start-year"></label>
-        <input type="text" id="sex" placeholder="Sex: M or F"><br>
-        <label for="end-year"></label>
-        <input type="text" id="zip" placeholder="Zip Code"><br>
-        <button type="button" class="submitBtn" id="submitBtn">Submit</button>
-    </form>
-    
-    <div id="display" class="display"></div>
-        <div class="row">
+
+    <div class="container">
+        <form>
+            <label for="retrieve-number"></label>
+            <input type="text" id="breed" placeholder="Cat Breed Wanted"><br>
+            <label for="start-year"></label>
+            <input type="text" id="sex" placeholder="Sex: M or F"><br>
+            <label for="end-year"></label>
+            <input type="text" id="zip" placeholder="Zip Code"><br>
+            <button type="button" class="submitBtn" id="submitBtn">Submit</button>
+        </form>
         
-            <div id="cat1" class="catInfo"></div>
-        
-            <div id="cat2" class="catInfo"></div>
-        
-            <div id="cat3" class="catInfo"></div>
-            
-            <div id="cat4" class="catInfo"></div>
-            
-            <div id="cat5" class="catInfo"></div>
-           
-            <div id="cat6" class="catInfo"></div>
-        
-            <div id="cat7" class="catInfo"></div>
-            
-            <div id="cat8" class="catInfo"></div>
-        
-            <div id="cat9" class="catInfo"></div>
-        
-            <div id="cat10" class="catInfo"></div>
-        </div>  
-          
-    <div id="showPhotos" class="showPhotos">
-        <h2>Popular kinds trending now: </h2>
-        <div class="row"></div>    
-            <div id="Bombay" class="cat">
-                <h4>Bombay female cat</h4>
-                <div id="Bombay1"></div>
-                <h5>Contact info:</h5>
-                    <div id="contactBombay" class="contactDetail"></div>
+        <div id="display" class="display"></div>
+            <div class="row">
+                <div id="cat1" class="catInfo"></div>
             </div>
-            <div id="Snowshoe" class="cat">
-                <h4>Snowshoe male cat</h4>
-                <div id="Snowshoe1"></div>
-                <h5>Contact info:</h5>
-                    <div id="contactSnowshoe" class="contactDetail"></div>
+
+            <div class="row">
+                <div id="cat2" class="catInfo"></div>
             </div>
-            <div id="Tiger" class="cat">
-                <h4>Tiger female cat</h4>
-                <div id="Tiger1"></div>
-                <h5>Contact info:</h5>
-                    <div id="contactTiger" class="contactDetail"></div>
+
+            <div class="row">
+                <div id="cat3" class="catInfo"></div>
+            </div>   
+            
+            <div class="row">
+                <div id="cat4" class="catInfo"></div>
             </div>
-            <div id="Siamese" class="cat">
-                <h4>Siamese female cat</h4>
-                <div id="Siamese1"></div>
-                <h5>Contact info:</h5>
-                    <div id="contactSiamese" class="contactDetail"></div>
+            
+            <div class="row">
+                <div id="cat5" class="catInfo"></div>
+            </div>
+            
+            <div class="row">
+                <div id="cat6" class="catInfo"></div>
+            </div>
+
+            <div class="row">
+                <div id="cat7" class="catInfo"></div>
+            </div>
+                
+            <div class="row">
+                <div id="cat8" class="catInfo"></div>
+            </div>
+            
+            <div class="row">
+                <div id="cat9" class="catInfo"></div>
+            </div>
+            
+            <div class="row">
+                <div id="cat10" class="catInfo"></div>
+            </div>
+              
+        <div id="showPhotos" class="showPhotos">
+            <h2>Popular kinds trending now: </h2>
+            <div class="row"></div>    
+                <div id="Bombay" class="cat">
+                    <h4>Bombay female cat</h4>
+                    <div id="Bombay1"></div>
+                    <h5>Contact info:</h5>
+                        <div id="contactBombay" class="contactDetail"></div>
+                </div>
+                <div id="Snowshoe" class="cat">
+                    <h4>Snowshoe male cat</h4>
+                    <div id="Snowshoe1"></div>
+                    <h5>Contact info:</h5>
+                        <div id="contactSnowshoe" class="contactDetail"></div>
+                </div>
+                <div id="Tiger" class="cat">
+                    <h4>Tiger female cat</h4>
+                    <div id="Tiger1"></div>
+                    <h5>Contact info:</h5>
+                        <div id="contactTiger" class="contactDetail"></div>
+                </div>
+                <div id="Siamese" class="cat">
+                    <h4>Siamese female cat</h4>
+                    <div id="Siamese1"></div>
+                    <h5>Contact info:</h5>
+                        <div id="contactSiamese" class="contactDetail"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-  <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src=cat.js></script>
 </body>
-
 </html>
