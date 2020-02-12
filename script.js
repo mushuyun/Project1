@@ -18,7 +18,7 @@ $.ajax({
   dataType: "jsonp",
   Method: "GET"   
 })
-
+// test
 .done(function(data){
 
       var result1 = data.petfinder.pets.pet[19].media.photos.photo[2].$t;
