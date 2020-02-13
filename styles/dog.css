@@ -1,3 +1,6 @@
+p,a {
+  line-height: 2;
+}
 .col {
     float: left;
     width: 50%;
@@ -10,12 +13,25 @@
     float: left;
   }
 
+  figure {
+    width: 300px;
+    overflow: hidden;
+  }
+
   .media-content {
     padding: 10px;
     line-height: normal;
   }
   .anchor {
     padding: 25px;
+  }
+
+  .start {
+    max-width: 400px;
+  }
+  .start-button {
+    color:white;
+    background-color: blue;
   }
   #mapID {
     width: 300px;
@@ -27,4 +43,8 @@
 
   #mapInfo {
     float: right;
+  }
+
+  .hide {
+    display:none;
   }
