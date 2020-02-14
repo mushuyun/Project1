@@ -4,14 +4,51 @@ body{
     align-items: center;
 }
 .container{
-    width: 960px;
+    width: 980px;
     height: 100%;
     justify-content: center;
     flex-direction: column;
+    background-color:	#FFFAFA;
+    border-color:darkolivegreen;
+    border-radius: 5px;
+}
+header{
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+    font-size: 36px;
+    background-color:rgb(110, 241, 132);
+    color:#800080;
 }
 form{
     margin-top: 40px;
     margin-left: 40px;
+    margin-bottom: 10px;
+}
+button{
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.submitBtn{
+    background-color: green;
+}
+#resetBtn{
+    background-color: grey;
+}
+
+.breeds{
+    margin-top: 5px;
+    padding: 5px;
+    width: 310px;
+    height: 40px;
+    font-size: 20px;
 }
 input{
     margin-top: 5px;
@@ -28,16 +65,22 @@ h2{
     color: darkorchid;
 }
 .catInfo{
-    padding:5px;
+    padding-top:10px;
+}
+
+h5{
+    margin: 0 auto;
 }
 .showPhotos{
     float: left;
 }
-.cat{
-    padding:5px;
+.cat{ 
+    width: 980px;
+    border-top: 1px dotted darkolivegreen; 
+    border-bottom: 1px dotted darkolivegreen;
 }
    
 img{
-    height: 200px;
-    width: 150px;
+    height: 250px;
+    width: 200px;
 }

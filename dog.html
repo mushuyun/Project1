@@ -19,7 +19,7 @@
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
-          Dogs&Cats
+          Dogs
         </h1>
         <h2 class="subtitle">
           Adopt Your Pet Today!
@@ -32,53 +32,68 @@
     
   
     <div class="container">
-        <div class="field">
-          <label class="label">Animal Type</label>
-          <div class="control">
-            <input class="input" id="animalType" type="text" placeholder="dog or cat">
-          </div>
-        </div>
         
         <div class="field">
           <label class="label">Breed</label>
           <div class="control">
-            <input class="input" id="breed" type="text" placeholder="First letter must be capitalized for Breed">
+            <select id='selBreed' class="breeds">
+              <option value='0'>Select Breed</option> 
+              <option value='1'>Akbash</option> 
+              <option value='2'>American Bully</option> 
+              <option value='3'>Bloodhound</option> 
+              <option value='4'>Boxer</option> 
+              <option value='5'>Bolognese</option> 
+              <option value='6'>Calico</option> 
+              <option value='7'>Chinchilla</option>
+              <option value='8'>Chihuahua</option> 
+              <option value='9'>Coonhound</option> 
+              <option value='10'>Dachshund</option> 
+              <option value='11'>Dachshund</option> 
+              <option value='12'>English Shepherd</option> 
+              <option value='13'>Eskimo Dog</option> 
+              <option value='14'>Foxhound</option> 
+              <option value='15'>French Bulldog</option>
+              <option value='16'>Golden Retriever</option>
+              <option value='17'>Greyhound</option> 
+              <option value='18'>Harrier</option> 
+              <option value='19'>Husky</option>
+              <option value='20'>Pekingese</option> 
+              <option value='21'>Pointer</option>  
+          </select>
+          <div class="field">
+            <label class="label">Sex</label>
+            <div class="control">
+              <input class="input" id="sex" type="text" placeholder="M or F">
+            </div>
           </div>
-        </div>
-        
-        <div class="field">
-          <label class="label">Sex</label>
-          <div class="control">
-            <input class="input" id="sex" type="text" placeholder="M or F">
+          
+          <div class="field">
+            <label class="label">Zip Code</label>
+            <div class="control">
+              <input class="input" id="zip" type="text" placeholder="27713">
+            </div>
           </div>
-        </div>
-        
-        <div class="field">
-          <label class="label">Zip Code</label>
-          <div class="control">
-            <input class="input" id="zip" type="text" placeholder="27713">
+          
+          <div class="field">
+            <div class="control">
+              <button class="button is-link" id="submitBtn">Submit</button>
+              <button type="reset" value="reset"  id="resetBtn">Reset</button>
+            </div>
           </div>
-        </div>
-        
-        <div class="field">
-          <div class="control">
-            <button class="button is-link" id="submitBtn">Submit</button>
-          </div>
-        </div>
-    <!--pet data renedered here-->
-        <div id="pet-div"></div>
-        <div id="mapID"></div>
-    </div>
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Dogs&Cats Copyright &copy;2020</strong>
-        </p>
+      <!--pet data renedered here-->
+          <div id="pet-div"></div>
+      <!--<div id="mapID"></div>-->
       </div>
-    </footer>
-      
-  <!--  Scripts-->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   <script src="dog.js"></script>
-  </body>
-</html>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Dogs&Cats Copyright &copy;2020</strong>
+          </p>
+        </div>
+      </footer>
+        
+    <!--  Scripts-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="dog.js"></script>
+    </body>
+  </html>

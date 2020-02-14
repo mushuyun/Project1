@@ -6,31 +6,38 @@
 //var sex = "F";
 //var zipcode = "27704";
 $("#submitBtn").on("click", function(){
-    var breed = $("#breed").val();
+    
+    var breed = $("#selBreed").children("option:selected").text();
     var sex = $("#sex").val();
     var zip = $("#zip").val();
     $.ajax({
+    
       url: "https://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466&animal=cat&breed=" + breed +"&sex=" + sex + "&location=" + zip + "&format=json",
       dataType: "jsonp",
       Method: "GET"   
+  
     })
     .done(function(data){
-      for(i = 0; i < 10; i++){
-        var result1 = data.petfinder.pets.pet[i].media.photos.photo[3].$t;
-        var phone1 = data.petfinder.pets.pet[i].contact.phone.$t;
-        var state = data.petfinder.pets.pet[i].contact.state.$t;
-        var city = data.petfinder.pets.pet[i].contact.city.$t;
-        var zip = data.petfinder.pets.pet[i].contact.zip.$t;
-        var email = data.petfinder.pets.pet[i].contact.email.$t;
-        var address = '<br />' + city + " " + state + ", " + zip + '<br />' + "Email: " + email;
-      
-        var photo =  $("<img>").attr("src" , result1);
-       $("#cat" + i).append(photo); 
-       $("#cat" + i).append(address);
-      }
-          
+     
+        for(i = 0; i < 10; i++){
+          var result1 = data.petfinder.pets.pet[i].media.photos.photo[3].$t;
+          var phone1 = data.petfinder.pets.pet[i].contact.phone.$t;
+          var state = data.petfinder.pets.pet[i].contact.state.$t;
+          var city = data.petfinder.pets.pet[i].contact.city.$t;
+          var zip = data.petfinder.pets.pet[i].contact.zip.$t;
+          var email = data.petfinder.pets.pet[i].contact.email.$t;
+          var address = '<br />' + city + " " + state + ", " + zip + '<br />' + "Email: " + email;
+        
+          var photo =  $("<img>").attr("src" , result1);
+          var addInfo = $("<h5>").text("Contact info: ");
+          $("#cat" + i).append(photo);   
+          $("#cat" + i).append(addInfo, address);
+          $(".catInfo").css("border-top" , "1px dotted darkolivegreen");
+        }
+    
     })
   })
+  
   //hard code to load cat photo on webpage
   //Bombay female
   $.ajax({
@@ -70,6 +77,7 @@ $("#submitBtn").on("click", function(){
     var photo1 =  $("<img>").attr("src" , result1);
     $("#contactSnowshoe").append(address);
     $("#Snowshoe1").append(photo1);
+    
   })
   //Siamese female
   $.ajax({

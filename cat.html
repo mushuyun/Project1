@@ -8,19 +8,45 @@
     <link rel="stylesheet" href="styles/cat.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->      
+  
 </head>
 <body>
 
     <div class="container">
+        <header>Find your cats here!</header>
         <form>
-            <label for="retrieve-number"></label>
-            <input type="text" id="breed" placeholder="First letter Capital for Breed"><br>
-            <label for="start-year"></label>
+            <select id='selBreed' class="breeds">
+                <option value='0'>Select Breed</option> 
+                <option value='1'>Abyssinian</option> 
+                <option value='2'>Bombay</option> 
+                <option value='3'>Balinese</option> 
+                <option value='4'>Birman</option> 
+                <option value='5'>Burmese</option> 
+                <option value='6'>Calico</option> 
+                <option value='7'>Chinchilla</option>
+                <option value='8'>Cymric</option> 
+                <option value='9'>Havana</option> 
+                <option value='10'>Himalayan</option> 
+                <option value='11'>LaPerm</option> 
+                <option value='12'>Manx</option> 
+                <option value='13'>Ocicat</option> 
+                <option value='14'>Persian</option> 
+                <option value='15'>Snowshoe</option>
+                <option value='16'>Siamese</option>
+                <option value='17'>Tabby</option> 
+                <option value='18'>Tuxedo</option> 
+                <option value='19'>Tiger</option>
+                <option value='20'>Munchkin</option> 
+                <option value='21'>Oriental Long Hair</option>     
+            </select>
+
+            <br>
             <input type="text" id="sex" placeholder="Sex: M or F"><br>
             <label for="end-year"></label>
             <input type="text" id="zip" placeholder="Zip Code"><br>
             <button type="button" class="submitBtn" id="submitBtn">Submit</button>
+            <button type="reset" value="reset" id="resetBtn">Reset</button>
+            
         </form>
         
         <div id="display" class="display"></div>
