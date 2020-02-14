@@ -15,23 +15,31 @@ window.onload = function () {
     $("#zip").attr("style", "color: black");
     $("#sex").attr("style", "color: black");
     $("#pet-div").empty();
+
     $("#dogContent").empty();
 
-    breedType = $("#breed").val();
+    breedType = $("#breed").children("option:selected").text()
     breedType = formatBreed(breedType);
+    console.log(breedType);
+
     sex = $("#sex").val().toUpperCase();
     if (sex !== "M" && sex !== "F" && sex !== "") {
       $("#sex").val("Can only input M or F or leave blank");
       $("#sex").attr("style", "color: red");
     }
+
+    console.log(sex);
     zip = $("#zip").val();
-    
+    console.log(zip);
+
     if (zip > 9999 && zip < 100000) { }
     else {
       $("#zip").val("Must be a 5 digit number");
       $("#zip").attr("style", "color: red");
     }
-    dogSearch($("#breed").val());
+
+    dogSearch($("#breed").children("option:selected").text());
+
     apiCall();
   });
 
@@ -110,17 +118,20 @@ window.onload = function () {
 
   //Makes all letters lowercase except 1st in every word
   function formatBreed(breed) {
-    var splitStr = breed.toLowerCase().split(' ');
-    for (var i = 0; i < splitStr.length; i++) {
-      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-    }
-    return splitStr.join(' ');
-  }
+    var breed = $("#breed").children("option:selected").text();
 
+ 
+    //add event listener to resetBtn
+    $("#resetBtn").on("click", function(){
+     $('input[id=sex]').val('');
+     $('input[id=zip]').val('');
+     $("#breed").children("option:selected").index(0);
+    
+  });
 
   //Takes users pet search and passes it to the Petfinder Api to get info on the closest 25 animals that match their criteria
   function apiCall() {
-    var url = "https://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466&animal=dog" + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip + "&format=json";
+    var url = "https://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466&animal=cat" + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip + "&format=json";
     //var url = "http://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466" +"&animal=" + animalType + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip +"&format=json";
 
     $.ajax({
@@ -134,7 +145,9 @@ window.onload = function () {
         console.log(data);
 
         if (!data.petfinder.pets || !data.petfinder.pets.pet) {
-          $(".notification").removeClass("hide");
+
+          $(".notificatione").removeClass("hide");
+
         }
         else {
           $(".notification").addClass("hide");
@@ -228,8 +241,6 @@ window.onload = function () {
               p6.addClass("subtitle is-6");
               p6.append(petEmail);
               var p7 = $("<p>");
-            
-
 
 
               divCard.append(mediaContent);
@@ -249,9 +260,6 @@ window.onload = function () {
               //divCard.append(anchor);
               var br = $("<br>")
               mediaContent.append(anchor).append(br);
-             
-
-              /////
 
 
               //takes shelter Id to get address
@@ -269,6 +277,7 @@ window.onload = function () {
                 mapBtn.attr("id", "mapBtn");
                 mapBtn.text("Display Map");
                 mediaContent.append(mapBtn);
+
               }
 
               //adds directions and map button if address is available
@@ -294,6 +303,7 @@ window.onload = function () {
                   }
                 }
               }
+
             }
             var startLabel = $("<p>").text('Choose Starting Address').addClass("hide").attr("id", "startLabel" + i);
             var startQ = $("<input>").addClass("input start hide").attr("id", "start" + i).attr("type", "text").attr("placeholder", "914 W Main St,Durham, NC 27701");
@@ -328,11 +338,12 @@ window.onload = function () {
       },
       success: function (data) {
         console.log(data);
-        if(data.petfinder.shelter) {
-        lon = data.petfinder.shelter.longitude.$t;
-        lat = data.petfinder.shelter.latitude.$t;
-        mqQuery = lat + "," + lon;
-        localStorage.setItem(id, mqQuery);
+
+        if (data.petfinder.shelter) {
+          lon = data.petfinder.shelter.longitude.$t;
+          lat = data.petfinder.shelter.latitude.$t;
+          mqQuery = lat + "," + lon;
+          localStorage.setItem(id, mqQuery);
         }
       }
     });

@@ -1,5 +1,3 @@
-
-
 //Dog and Cat breed info and pic
 var catBreed;
 var breedId;
@@ -77,7 +75,6 @@ console.log("cattttt");
 
 
 
-
 function catImgSearch(breedId) {
 
   console.log(breedId + " cat image search");
@@ -98,8 +95,4 @@ function catImgSearch(breedId) {
 
   });
 }
-
-
-
-
 

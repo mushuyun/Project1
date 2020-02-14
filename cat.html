@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <title>Dogs&Cats Adoption</title>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -12,7 +12,9 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
   <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-  <link rel="stylesheet" type="text/css" href="./styles/dog.css">   
+
+  <link rel="stylesheet" type="text/css" href="./styles/cat.css">   
+
 </head>
 <body>
     <section class="hero is-primary">
@@ -29,7 +31,64 @@
           </div>
         </div>
         </section>
-​
+
+        <div class="container">
+
+          <div id="catDiv" class = "hide">
+            <div id="catContent"> </div>
+            <img id="catImg">
+          </div>
+
+            <div class="field">
+              <label class="label">Breed</label>
+              <div class="control">
+                <select id="breed" type="text" class="input">
+                  <option value='0'>Select Breed</option> 
+                  <option value='1'>Abyssinian</option> 
+                  <option value='2'>Bombay</option> 
+                  <option value='3'>Balinese</option> 
+                  <option value='4'>Birman</option> 
+                  <option value='5'>Burmese</option> 
+                  <option value='6'>Calico</option> 
+                  <option value='7'>Chinchilla</option>
+                  <option value='8'>Cymric</option> 
+                  <option value='9'>Havana</option> 
+                  <option value='10'>Himalayan</option> 
+                  <option value='11'>LaPerm</option> 
+                  <option value='12'>Manx</option> 
+                  <option value='13'>Ocicat</option> 
+                  <option value='14'>Persian</option> 
+                  <option value='15'>Snowshoe</option>
+                  <option value='16'>Siamese</option>
+                  <option value='17'>Tabby</option> 
+                  <option value='18'>Tuxedo</option> 
+                  <option value='19'>Tiger</option>
+                  <option value='20'>Munchkin</option> 
+                  <option value='21'>Oriental Long Hair</option>     
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Sex</label>
+              <div class="control">
+                <input class="input" id="sex" type="text" placeholder="M or F">
+              </div>
+            </div>
+            
+            <div class="field">
+              <label class="label">Zip Code</label>
+              <div class="control">
+                <input class="input" id="zip" type="text" placeholder="27713">
+              </div>
+            </div>
+            
+            <div class="field">
+              <div class="control">
+                <button class="button is-link" id="submitBtn">Submit</button>
+                <input class="button" type="reset" value="Reset Input" id="resetBtn">
+              </div>
+
         <div class="container">
 
           <div id="catDiv" class = "hide">
@@ -67,6 +126,7 @@
             <div class="notification is-danger is-light hide">
               <button class="delete"></button>
               <strong>Warning!</strong> Could not complete your pet request. Please try again.
+
             </div>
         <!--pet data renedered here-->
             <div id="pet-div"></div>
