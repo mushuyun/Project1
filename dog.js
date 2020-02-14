@@ -127,13 +127,13 @@ window.onload = function () {
     $('input[id=sex]').val('');
     $('input[id=zip]').val('');
      
-    $("#breed").children("option:selected").index(0);
+    $("#breed").children("option:selected").val() = "0";
     
   });
 
   //Takes users pet search and passes it to the Petfinder Api to get info on the closest 25 animals that match their criteria
   function apiCall() {
-    var url = "https://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466&animal=cat" + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip + "&format=json";
+    var url = "https://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466&animal=dog" + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip + "&format=json";
     //var url = "http://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466" +"&animal=" + animalType + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip +"&format=json";
 
     $.ajax({
