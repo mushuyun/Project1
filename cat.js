@@ -20,7 +20,7 @@ var L;
 	    $("#catDiv").removeClass("hide");
 	
 
-	    breedType = $("#breed").val();
+	    breedType = $("#breed").children("option:selected").text();
 	    breedType = formatBreed(breedType);
 	    console.log(breedType);
 	    sex = $("#sex").val().toUpperCase();
@@ -69,9 +69,6 @@ var L;
 	  });
 	
 
-	
-
-	
 
 	  //Direction display button click event
 	  $(document).on("click", "#directionsBtn", function (event) {
