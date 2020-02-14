@@ -18,11 +18,11 @@ console.log("cattttt");
     $("#catContent").empty();
     $("#catImg").attr("src", "");
     if (!response[0]) {
-      $("#alertCat").removeClass("hide");
+      $(".notification").removeClass("hide");
     }
-
+   
     else if (response.length > 1) {
-      $("#alertCat").addClass("hide");
+      
       var choice = $("<p>").text("Choose which cat breed you wanted:");
       $("#catContent").append(choice);
       for (var i = 0; i < response.length; i++) {
@@ -52,7 +52,9 @@ console.log("cattttt");
             $("#catContent").prepend("<h4>" + response[j].name + "</h4>");
           }
         }
+        
         catImgSearch(breedId);
+        $("#catDiv").removeClass("hide");
 
       });
     }
@@ -65,7 +67,9 @@ console.log("cattttt");
       $("#catContent").prepend("<p>Weight: " + response[j].weight.imperial + " lbs</p>");
       $("#catContent").prepend("<p>Temperament: " + response[j].temperament + "</p>");
       $("#catContent").prepend("<h4>" + response[j].name + "</h4>");
+      
       catImgSearch(breedId);
+      $("#catDiv").removeClass("hide");
     }
 
   });

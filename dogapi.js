@@ -15,8 +15,7 @@ function dogSearch(breed) {
       return;
     }
     else {
-      
-      $("#alertDog").addClass("hide");
+      $("#dogDiv").removeClass("hide");
       if (response.length > 1) {
         var choice = $("<p>").text("Choose which dog breed you wanted to learn more about");
         $("#dogContent").append(choice);

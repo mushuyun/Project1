@@ -16,19 +16,16 @@ window.onload = function () {
     $("#sex").attr("style", "color: black");
     $("#pet-div").empty();
     $("#dogContent").empty();
-    $("#dogDiv").removeClass("hide");
 
     breedType = $("#breed").val();
     breedType = formatBreed(breedType);
-    console.log(breedType);
     sex = $("#sex").val().toUpperCase();
     if (sex !== "M" && sex !== "F" && sex !== "") {
       $("#sex").val("Can only input M or F or leave blank");
       $("#sex").attr("style", "color: red");
     }
-    console.log(sex);
     zip = $("#zip").val();
-    console.log(zip);
+    
     if (zip > 9999 && zip < 100000) { }
     else {
       $("#zip").val("Must be a 5 digit number");
@@ -131,16 +128,16 @@ window.onload = function () {
       dataType: "jsonp",
       type: "GET",
       error: function () {
-        $("article").removeClass("hide");
+        $(".notification").removeClass("hide");
       },
       success: function (data) {
         console.log(data);
 
         if (!data.petfinder.pets || !data.petfinder.pets.pet) {
-          $("article").removeClass("hide");
+          $(".notification").removeClass("hide");
         }
         else {
-          $("article").addClass("hide");
+          $(".notification").addClass("hide");
           for (var i = 0; i < data.petfinder.pets.pet.length; i++) {
             if (data.petfinder.pets.pet[i].media.photos) {
               var id = i;
@@ -437,7 +434,7 @@ window.onload = function () {
 
   //removes incorrect input warning when user clicks the 'X'
   $(".delete").on("click", function () {
-    $("article").addClass("hide");
+    $(".notification").addClass("hide");
   });
 
 };
