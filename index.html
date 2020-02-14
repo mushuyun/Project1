@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Dogs&Cats Adoption</title>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
   <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-  <link rel="stylesheet" type="text/css" href="styles/dog.css">
+  <link rel="stylesheet" type="text/css" href="./styles/dog.css">
   
  
 </head>
@@ -21,35 +20,39 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        Dogs&Cats
+        Furry Friend Finder
       </h1>
       <h2 class="subtitle">
         Adopt Your Pet Today!
       </h2>
+      <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo"></a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <div class = "container-main">
     <div class = "row center-align">
-        <div class="col s12">
+        <div class="col is-6">
           <a href="dog.html" id="dog-image" alt="dogs"><img src="styles/images/dog-sm.png"></a>
         </div>
       
-        <div class="col s12">
+        <div class="col is-6">
           <a href="cat.html" id="cat-image" alt="cats"><img src="styles/images/cat-sm.png"></a>
         </div>
     </div>
-  
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Dogs&Cats Adoption Copyright &copy;2020</strong>
-        </p>
-      </div>
-    </footer>
-      
-  
+  </div>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Dogs&Cats Adoption Copyright &copy;2020</strong>
+      </p>
+    </div>
+  </footer>
+
   <!--  Scripts-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="script.js"></script>
+  <script src="dog.js"></script>
+
   </body>
 </html>
