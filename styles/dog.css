@@ -25,6 +25,14 @@ h4 {
   padding: 30px;
 }
 
+.notification {
+  max-width: 550px;
+}
+
+.container {
+  margin-bottom: 80px;
+}
+
 .container-main {
   height: 300px;
 }
@@ -42,20 +50,26 @@ h4 {
 }
 
 .row {
-  width: 800px;
- 
-  margin-left: 280px;
+  width: 60%;
+  margin:0 auto;
 }
-
 .hero {
   margin-bottom: 20px;
 }
 
+#mapID {
+  width: 50%;
+  padding-top:50%;
+  float: right;
+}
 footer, .footer {
   width: 100%;
   height: 40px;
   position: fixed;
   bottom: 0;
+
+  padding:15px;
+  padding-bottom:40px;
 }
 
 .start {

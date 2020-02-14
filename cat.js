@@ -16,7 +16,6 @@ window.onload = function () {
     $("#sex").attr("style", "color: black");
     $("#pet-div").empty();
     $("#catContent").empty();
-    $("#catDiv").removeClass("hide");
 
     breedType = $("#breed").val();
     breedType = formatBreed(breedType);
@@ -131,16 +130,16 @@ window.onload = function () {
       dataType: "jsonp",
       type: "GET",
       error: function () {
-        $("article").removeClass("hide");
+        $(".notification").removeClass("hide");
       },
       success: function (data) {
         console.log(data);
 
         if (!data.petfinder.pets || !data.petfinder.pets.pet) {
-          $("article").removeClass("hide");
+          $(".notificatione").removeClass("hide");
         }
         else {
-          $("article").addClass("hide");
+          $(".notification").addClass("hide");
           for (var i = 0; i < data.petfinder.pets.pet.length; i++) {
             if (data.petfinder.pets.pet[i].media.photos) {
               var id = i;
@@ -437,7 +436,7 @@ window.onload = function () {
 
   //removes incorrect input warning when user clicks the 'X'
   $(".delete").on("click", function () {
-    $("article").addClass("hide");
+    $(".notification").addClass("hide");
   });
 
 };
