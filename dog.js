@@ -379,6 +379,7 @@ var wantMap = false;
     });
   }
 
+
   $(".delete").on("click", function () {
     $("article").addClass("hide");
   });
