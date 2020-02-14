@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +12,7 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
   <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-  <link rel="stylesheet" type="text/css" href="./styles/cat.css">   
+  <link rel="stylesheet" type="text/css" href="./styles/dog.css">   
 </head>
 <body>
     <section class="hero is-primary">
@@ -30,13 +29,18 @@
           </div>
         </div>
         </section>
-
+​
         <div class="container">
-        
+
+          <div id="catDiv" class = "hide">
+            <div id="catContent"> </div>
+            <img id="catImg">
+          </div>
+
             <div class="field">
               <label class="label">Breed</label>
               <div class="control">
-                <input class="input" id="breed" type="text" placeholder="First letter must be capitalized for Breed">
+                <input class="input" id="breed" type="text" placeholder="Choose preferred dog breed">
               </div>
             </div>
             
@@ -72,40 +76,10 @@
           </div>
         </footer>
         
-
-              
-  <!--      <div id="showPhotos" class="showPhotos">
-            <h2>Popular kinds trending now: </h2>
-            <div class="row"></div>    
-                <div id="Bombay" class="cat">
-                    <h4>Bombay female cat</h4>
-                    <div id="Bombay1"></div>
-                    <h5>Contact info:</h5>
-                        <div id="contactBombay" class="contactDetail"></div>
-                </div>
-                <div id="Snowshoe" class="cat">
-                    <h4>Snowshoe male cat</h4>
-                    <div id="Snowshoe1"></div>
-                    <h5>Contact info:</h5>
-                        <div id="contactSnowshoe" class="contactDetail"></div>
-                </div>
-                <div id="Tiger" class="cat">
-                    <h4>Tiger female cat</h4>
-                    <div id="Tiger1"></div>
-                    <h5>Contact info:</h5>
-                        <div id="contactTiger" class="contactDetail"></div>
-                </div>
-                <div id="Siamese" class="cat">
-                    <h4>Siamese female cat</h4>
-                    <div id="Siamese1"></div>
-                    <h5>Contact info:</h5>
-                        <div id="contactSiamese" class="contactDetail"></div>
-                </div>
-            </div>   -->
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src=cat.js></script>
+    <script type="text/javascript" src=catApi.js></script>
 </body>
->>>>>>> 1ab22a26f8e55a12f8186180c4debf1dfcf277da
 </html>

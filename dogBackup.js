@@ -15,9 +15,9 @@ window.onload = function () {
     $("#zip").attr("style", "color: black");
     $("#sex").attr("style", "color: black");
     $("#pet-div").empty();
-    $("#dogContent").empty();
-    $("#dogDiv").removeClass("hide");
 
+    animalType = $("#animalType").val().toLowerCase();
+    console.log(animalType);
     breedType = $("#breed").val();
     breedType = formatBreed(breedType);
     console.log(breedType);
@@ -29,12 +29,11 @@ window.onload = function () {
     console.log(sex);
     zip = $("#zip").val();
     console.log(zip);
-    if (zip > 9999 && zip < 100000) { }
+    if (zip > 9999 && zip < 100000) {}
     else {
       $("#zip").val("Must be a 5 digit number");
       $("#zip").attr("style", "color: red");
     }
-    dogSearch($("#breed").val());
     apiCall();
   });
 
@@ -42,23 +41,21 @@ window.onload = function () {
   //Map display button click event
   $(document).on("click", "#mapBtn", function (event) {
     event.preventDefault();
-    console.log("map buttonnnnnnnnnn");
+    
     wantMap = true;
     $("#mapID").remove();
     mapDiv = $("<div>").attr("id", "mapID");
     $(this).parent("div").prepend(mapDiv);
-    console.log($(this).parent("div"));
 
     var i = $(this).parent("div").attr("id");
-    console.log(i);
     mqQuery = localStorage.getItem(i);
     $("#startBtn" + i).text("Display Map");
 
-    if (noGeo) {
-      noGeoloc(i);
-    }
+    if(noGeo) {
+    noGeoloc(i);
+  }
     else {
-      geoLoc(i);
+    geoLoc(i);
     }
   });
 
@@ -68,16 +65,16 @@ window.onload = function () {
   $(document).on("click", "#directionsBtn", function (event) {
     event.preventDefault();
 
-    var i = $(this).parent("div").attr("id");
+    var i = $(this).parent("div").attr("id");;
     mqQuery = localStorage.getItem(i);
     $("#startBtn" + i).text("Get Directions");
-    if (noGeo) {
+    if(noGeo){
       noGeoloc(i);
     }
     else {
-      geoLoc(i);
+    geoLoc(i);
     }
-
+    
   });
 
 
@@ -87,7 +84,7 @@ window.onload = function () {
     $("#start" + i).removeClass("hide");
     $("#startLabel" + i).removeClass("hide");
     $("#startBtn" + i).removeClass("hide");
-    if (localStorage.getItem("current")) {
+    if(localStorage.getItem("current")){
       console.log(localStorage.getItem("current"));
       $("#start" + i).attr("value", localStorage.getItem("current"));
     }
@@ -123,7 +120,7 @@ window.onload = function () {
 
   //Takes users pet search and passes it to the Petfinder Api to get info on the closest 25 animals that match their criteria
   function apiCall() {
-    var url = "http://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466&animal=dog" + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip + "&format=json";
+    var url = "https://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466" + "&animal=" + animalType + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip + "&format=json";
     //var url = "http://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466" +"&animal=" + animalType + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip +"&format=json";
 
     $.ajax({
@@ -147,115 +144,77 @@ window.onload = function () {
               var petName = $("<p>").text(data.petfinder.pets.pet[i].name.$t);
 
               var breeds = [];
-              if (data.petfinder.pets.pet[i].breeds.breed.$t) {
+              if(data.petfinder.pets.pet[i].breeds.breed.$t) {
                 breeds.push(data.petfinder.pets.pet[i].breeds.breed.$t)
               }
-              for (var j = 0; j < data.petfinder.pets.pet[i].breeds.breed.length; j++) {
-                if (data.petfinder.pets.pet[i].breeds.breed[j].$t) {
+              for(var j = 0; j < data.petfinder.pets.pet[i].breeds.breed.length; j++) {
+                if(data.petfinder.pets.pet[i].breeds.breed[j].$t){
                   breeds.push(data.petfinder.pets.pet[i].breeds.breed[j].$t);
                 }
               }
               console.log(breeds);
-              var breedsList = $("<p>").text("Breed: " + breeds);
-
-
-              var petAge = $("<p>").text("Age: " + data.petfinder.pets.pet[i].age.$t);
-              var petSex = $("<p>").text("Sex: " + data.petfinder.pets.pet[i].sex.$t);
-              var petLocation = $("<p>").text("Location: " + data.petfinder.pets.pet[i].contact.city.$t + ", " + data.petfinder.pets.pet[i].contact.state.$t + ", " + data.petfinder.pets.pet[i].contact.zip.$t);
-              var petEmail = $("<a>").attr("href", "mailto:" + data.petfinder.pets.pet[i].contact.email.$t).text("Email: " + data.petfinder.pets.pet[i].contact.email.$t);
-
-              // var animalLink = "https://www.petfinder.com/search/pets-for-adoption/?id=" + petId;
-              // var anchor = $("<a>").attr("href", animalLink).attr('target', '_blank');
-
-              // anchor.text("- [Click here to read more about " + data.petfinder.pets.pet[i].name.$t + "!]");
-              // var separator = $("<hr>");
-              /////
-
-              var rowContainer = $("<div>");
-              rowContainer.addClass("row column");
-              var divColumn = $("<div>");
-              divColumn.addClass("column column");
+              var breedsList = $("<p>").text("- Breeds: " + breeds);
+              
+              
+              var petAge = $("<p>").text("- Age: " + data.petfinder.pets.pet[i].age.$t);
+              var petSex = $("<p>").text("- Sex: " + data.petfinder.pets.pet[i].sex.$t);
+              var petLocation = $("<p>").text("- Location: " + data.petfinder.pets.pet[i].contact.city.$t + ", " + data.petfinder.pets.pet[i].contact.state.$t + ", " + data.petfinder.pets.pet[i].contact.zip.$t);
+              var petEmail = $("<a>").attr("href", "mailto:" + data.petfinder.pets.pet[i].contact.email.$t).text("- Email: " + data.petfinder.pets.pet[i].contact.email.$t);
+              var rowCard = $("<div>");
+              rowCard.addClass("row columns");
+              var thirdCol = $("<div>");
+              thirdCol.addClass("column is-one-half");
               var divCard = $("<div>");
-              divCard.addClass("card is-horizontal");
-              var divCardImg = $("<div>");
-              divCardImg.addClass("figure-content");
-
-              var figure = $("<figure>");
-              figure.addClass("image is-square is-200x200");
-              var img = $("<img>");
-              img.addClass("img-size");
-              img.attr("src", data.petfinder.pets.pet[i].media.photos.photo[2].$t);
-              img.attr("alt", "dog and cat pictures");
-
-              if (data.petfinder.pets.pet[i].media.photos) {
-                img.attr("src", data.petfinder.pets.pet[i].media.photos.photo[2].$t);
-              }
-
-              var divCardStacked = $("<div>");
-              divCardStacked.addClass("card-stacked");
+              divCard.addClass("card large");
               var divCardContent = $("<div>");
               divCardContent.addClass("card-content");
-              var divMediaContent = $("<div>");
-              divMediaContent.addClass("media-content");
-              // p tags //
-              var p1 = $("<p>");
-              p1.addClass("title is-4 no-padding");
-              var p2 = $("<p>");
-              p2.addClass("subtitle is-6");
+              var divMedia = $("<div>");
+              divMedia.addClass("media");
+              var divMediaLeft = $("<div>");
+              divMediaLeft.addClass("media-left");
+              var figure = $("<figure>");
+              figure.addClass("image is-128x128");
+              var img = $("<img>");
 
+              img.attr("src", data.petfinder.pets.pet[i].media.photos.photo[1].$t);
+
+              var separator = $("<hr>");
               var petId = data.petfinder.pets.pet[i].id.$t;
-              rowContainer.append(divColumn);
-              divColumn.append(divCard);
-              divCard.append(divCardImg);
-              divCardImg.append(figure);
+              rowCard.append(thirdCol);
+              thirdCol.append(divCard);
+              divCard.append(divCardContent);
+              divCardContent.append(divMedia);
+              divMedia.append(divMediaLeft);
+              //divMediaLeft.append(figure);
               figure.append(img);
-              ///
-              //// mediaContent holds all the text info
-              var mediaContent = $("<div>");
+              mediaContent = $("<div>");
               mediaContent.addClass("media-content").addClass("media-right").attr("id", i);
+              //mediaContent.addClass("media-right");
+              var br = $("<br>");
 
-              p1.append(petName);
-              //p1.append(br);
+              petName.addClass("title is-4");
+              petName.append(br);
+              var animalLink = "https://www.petfinder.com/search/pets-for-adoption/?id=" + petId;
+              var anchor = $("<a>").attr("href", animalLink).attr('target', '_blank');
 
-              p2.append(breedsList);
-              var p3 = $("<p>");
-              p3.addClass("subtitle is-6");
-              p3.append(petSex);
-              var p4 = $("<p>");
-              p4.addClass("subtitle is-6");
-              p4.append(petAge);
-              var p5 = $("<p>");
-              p5.addClass("subtitle is-6");
-              p5.append(petLocation);
-              var p6 = $("<p>");
-              p6.addClass("subtitle is-6");
-              p6.append(petEmail);
-              var p7 = $("<p>");
-            
-
+              anchor.text("- [Click here to read more about " + data.petfinder.pets.pet[i].name.$t + "!]");
+              var separator = $("<hr>");
+              // petAge.addClass("subtitle is-6");
+              // petSex.addClass("subtitle is-6");
+              // petLocation.addClass("subtitle is-6");
+              // petEmail.addClass("subtitle is-6");
 
 
               divCard.append(mediaContent);
-              mediaContent.append(p1).append(p2).append(p3).append(p4).append(p5).append(p6);
+              figure.append(img);
 
-              // var animalLink = "https://www.petfinder.com/search/pets-for-adoption/?id=" + petId;
-              // var anchor = $("<a>").attr("href", animalLink);
-              // anchor.addClass("anchor");
-              // anchor.text("click here to read more!");
-              // divCard.append(anchor);
+              $(mediaContent).append(petName).append(separator).append(figure).append(breedsList).append(petAge).append(petSex).append(petLocation).append(petEmail).append("<br>").append(anchor).append("<br>");
 
-
-              var animalLink = "https://www.petfinder.com/search/pets-for-adoption/?id=" + petId;
-              var anchor = $("<a>").attr("href", animalLink).attr('target', '_blank').addClass("anchor");
-
-              anchor.text("[Click here to read more about " + data.petfinder.pets.pet[i].name.$t + "!]");
-              //divCard.append(anchor);
-              var br = $("<br>")
-              mediaContent.append(anchor).append(br);
-             
-
-              /////
-
+              street = data.petfinder.pets.pet[i].contact.address1.$t;
+              city = data.petfinder.pets.pet[i].contact.city.$t;
+              state = data.petfinder.pets.pet[i].contact.state.$t;
+              mqQuery = street + ", " + city + ", " + state;
+              localStorage.setItem(id, mqQuery);
 
               //takes shelter Id to get address
               if (data.petfinder.pets.pet[i].shelterId.$t && data.petfinder.pets.pet[i].shelterId.$t !== "NC917") {
@@ -303,13 +262,9 @@ window.onload = function () {
             var startButton = $("<button>").addClass("button start-button hide").attr("id", "startBtn" + i).text("START");
             $(mediaContent).append(startLabel).append(startQ).append(startButton);
 
-            $("#pet-div").append(rowContainer);
+            mediaContent.append(br);
 
-            street = data.petfinder.pets.pet[i].contact.address1.$t;
-            city = data.petfinder.pets.pet[i].contact.city.$t;
-            state = data.petfinder.pets.pet[i].contact.state.$t;
-            mqQuery = street + ", " + city + ", " + state;
-            localStorage.setItem(id, mqQuery);
+            $("#pet-div").append(rowCard, separator)
 
           }
         }
@@ -320,7 +275,6 @@ window.onload = function () {
 
   //uses shelterId to find the location of shelter
   function shelterFind(shelterId, id) {
-    console.log(shelterId, id)
     var url = "https://api.petfinder.com/shelter.get?key=2f95f51b181ddd27883e91878e922466" + "&id=" + shelterId + "&format=json";
 
     $.ajax({
@@ -330,13 +284,12 @@ window.onload = function () {
       error: function () {
       },
       success: function (data) {
-        console.log(data);
-        if(data.petfinder.shelter) {
+        //console.log(data);
+
         lon = data.petfinder.shelter.longitude.$t;
         lat = data.petfinder.shelter.latitude.$t;
         mqQuery = lat + "," + lon;
         localStorage.setItem(id, mqQuery);
-        }
       }
     });
   }
@@ -361,7 +314,7 @@ window.onload = function () {
         console.log("not given location access by user");
         noGeo = true;
         noGeoloc(i);
-
+    
       }
     }
     else {
@@ -414,20 +367,20 @@ window.onload = function () {
       if (response.route) {
         directions = response.route.legs[0].maneuvers;
         var dirTitle = $("<h4>").text("Driving Directions");
-        $("#" + divId).append("<hr>").append(dirTitle).append("<hr>");
+        $("#" + divId).append(dirTitle).append("<hr>");
 
         for (var i = 0; i < directions.length; i++) {
           //dirArray.push(directions[i].narrative);
-          if (i === directions.length - 1) {
+          if(i === directions.length - 1){
             var dir = $("<p>").text(directions[i].narrative);
-          }
+          } 
           else {
-            var dir = $("<p>").text("- " + directions[i].narrative + " (" + response.route.legs[0].maneuvers[i].distance + " miles)");
-          }
+          var dir = $("<p>").text("- " + directions[i].narrative + " (" + response.route.legs[0].maneuvers[i].distance + " miles)");
+        }
           $(dir).addClass("directions-step");
           $("#" + divId).append(dir).append;
         }
-
+        
       }
       else {
         console.log("Couldn't find directions");
