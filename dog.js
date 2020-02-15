@@ -1,14 +1,14 @@
 //declaring global variables
 var L;
 window.onload = function () {
-  var sex, zip, street, city, state, mediaContent, directions, current, destination, breedType, animalType, lat, lon, mqQuery;
+  var sex, zip, street, city, state, mediaContent, directions, current, destination, breedType, lat, lon, mqQuery;
   dirArray = [];
   var geoCount = 0;
   var wantMap = false;
   var shelter = false;
   noGeo = false;
 
-  $(document).ready(function(){
+  $(document).ready(function () {
     $('select').formSelect();
   });
 
@@ -26,15 +26,12 @@ window.onload = function () {
       breedType = "";
     }
     //breedType = formatBreed(breedType);
-    console.log(breedType);
     sex = $("#sex").val().toUpperCase();
     if (sex !== "M" && sex !== "F" && sex !== "") {
       $("#sex").val("Can only input M or F or leave blank");
       $("#sex").attr("style", "color: red");
     }
-    console.log(sex);
     zip = $("#zip").val();
-    console.log(zip);
     if (zip > 9999 && zip < 100000) { }
     else {
       $("#zip").val("Must be a 5 digit number");
@@ -48,18 +45,13 @@ window.onload = function () {
   //Map display button click event
   $(document).on("click", "#mapBtn", function (event) {
     event.preventDefault();
-    console.log("map buttonnnnnnnnnn");
     wantMap = true;
     $("#mapID").remove();
-    mapDiv = $("<div>").attr("id", "mapID");
+    mapDiv = $("<div>").attr("id", "mapID").addClass("hide");
     $(this).parent("div").prepend(mapDiv);
-    console.log($(this).parent("div"));
-
     var i = $(this).parent("div").attr("id");
-    console.log(i);
     mqQuery = localStorage.getItem(i);
     $("#startBtn" + i).text("Display Map");
-
     if (noGeo) {
       noGeoloc(i);
     }
@@ -73,8 +65,6 @@ window.onload = function () {
   //Direction display button click event
   $(document).on("click", "#directionsBtn", function (event) {
     event.preventDefault();
-
-    
     var i = $(this).parent("div").attr("id");
     mqQuery = localStorage.getItem(i);
     $("#startBtn" + i).text("Get Directions");
@@ -90,12 +80,10 @@ window.onload = function () {
 
   //Shows input box for current address when geolocation is disabled
   function noGeoloc(i) {
-    //$("#" + i).children("#directionsBtn").addClass("hide");
     $("#start" + i).removeClass("hide");
     $("#startLabel" + i).removeClass("hide");
     $("#startBtn" + i).removeClass("hide");
     if (localStorage.getItem("current")) {
-      console.log(localStorage.getItem("current"));
       $("#start" + i).attr("value", localStorage.getItem("current"));
     }
   }
@@ -107,8 +95,6 @@ window.onload = function () {
     mqQuery = localStorage.getItem(i);
     current = $("#start" + i).val();
     localStorage.setItem("current", current);
-    console.log(current, mqQuery);
-
     if (wantMap) {
       buildMap(mqQuery);
     }
@@ -118,22 +104,16 @@ window.onload = function () {
   });
 
 
-
   //add event listener to resetBtn
-
-  $("#resetBtn").on("click", function(){
-    
+  $("#resetBtn").on("click", function () {
     $('input[id=sex]').val('');
     $('input[id=zip]').val('');
-     
-    //$("#breed").children("option:selected").val() = "0";
-    
+    $("#dogDiv").addClass("hide");
   });
 
   //Takes users pet search and passes it to the Petfinder Api to get info on the closest 25 animals that match their criteria
   function apiCall() {
     var url = "https://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466&animal=dog" + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip + "&format=json";
-    //var url = "http://api.petfinder.com/pet.find?key=2f95f51b181ddd27883e91878e922466" +"&animal=" + animalType + "&breed=" + breedType + "&sex=" + sex + "&location=" + zip +"&format=json";
 
     $.ajax({
       url: url,
@@ -143,8 +123,6 @@ window.onload = function () {
         $(".notification").removeClass("hide");
       },
       success: function (data) {
-        console.log(data);
-
         if (!data.petfinder.pets || !data.petfinder.pets.pet) {
           $(".notification").removeClass("hide");
         }
@@ -154,7 +132,6 @@ window.onload = function () {
             if (data.petfinder.pets.pet[i].media.photos) {
               var id = i;
               var petName = $("<p>").text(data.petfinder.pets.pet[i].name.$t);
-
               var breeds = [];
               if (data.petfinder.pets.pet[i].breeds.breed.$t) {
                 breeds.push(data.petfinder.pets.pet[i].breeds.breed.$t)
@@ -164,21 +141,11 @@ window.onload = function () {
                   breeds.push(data.petfinder.pets.pet[i].breeds.breed[j].$t);
                 }
               }
-              console.log(breeds);
               var breedsList = $("<p>").text("Breed: " + breeds);
-
-
               var petAge = $("<p>").text("Age: " + data.petfinder.pets.pet[i].age.$t);
               var petSex = $("<p>").text("Sex: " + data.petfinder.pets.pet[i].sex.$t);
               var petLocation = $("<p>").text("Location: " + data.petfinder.pets.pet[i].contact.city.$t + ", " + data.petfinder.pets.pet[i].contact.state.$t + ", " + data.petfinder.pets.pet[i].contact.zip.$t);
               var petEmail = $("<a id='lol'>").attr("href", "mailto:" + data.petfinder.pets.pet[i].contact.email.$t).text("Email: " + data.petfinder.pets.pet[i].contact.email.$t);
-
-              // var animalLink = "https://www.petfinder.com/search/pets-for-adoption/?id=" + petId;
-              // var anchor = $("<a>").attr("href", animalLink).attr('target', '_blank');
-
-              // anchor.text("- [Click here to read more about " + data.petfinder.pets.pet[i].name.$t + "!]");
-              // var separator = $("<hr>");
-              /////
 
               var rowContainer = $("<div>");
               rowContainer.addClass("card");
@@ -188,7 +155,6 @@ window.onload = function () {
               divCard.addClass("card");
               var divCardImg = $("<div>");
               divCardImg.addClass("figure-content");
-
               var figure = $("<div>");
               figure.addClass("card-image");
               var img = $("<img>");
@@ -199,7 +165,6 @@ window.onload = function () {
               if (data.petfinder.pets.pet[i].media.photos) {
                 img.attr("src", data.petfinder.pets.pet[i].media.photos.photo[2].$t);
               }
-
               var divCardStacked = $("<div>");
               divCardStacked.addClass("card-stacked");
               var divCardContent = $("<div>");
@@ -211,21 +176,16 @@ window.onload = function () {
               p1.addClass("title is-4 no-padding");
               var p2 = $("<p>");
               p2.addClass("subtitle is-6");
-
               var petId = data.petfinder.pets.pet[i].id.$t;
               rowContainer.append(divColumn);
               divColumn.append(divCard);
               divCard.append(divCardImg);
               divCardImg.append(figure);
               figure.append(img);
-              ///
               //// mediaContent holds all the text info
               var mediaContent = $("<div>");
               mediaContent.addClass("media-content").addClass("media-right").attr("id", i);
-
               p1.append(petName);
-              //p1.append(br);
-
               p2.append(breedsList);
               var p3 = $("<p>");
               p3.addClass("subtitle is-6");
@@ -241,18 +201,8 @@ window.onload = function () {
               p6.append(petEmail);
               var p7 = $("<p>");
 
-
-
-
               divCard.append(mediaContent);
               mediaContent.append(p1).append(p2).append(p3).append(p4).append(p5).append(p6);
-
-              // var animalLink = "https://www.petfinder.com/search/pets-for-adoption/?id=" + petId;
-              // var anchor = $("<a>").attr("href", animalLink);
-              // anchor.addClass("anchor");
-              // anchor.text("click here to read more!");
-              // divCard.append(anchor);
-
 
               var animalLink = "https://www.petfinder.com/search/pets-for-adoption/?id=" + petId;
               var anchor = $("<a>").attr("href", animalLink).attr('target', '_blank').addClass("anchor");
@@ -261,11 +211,6 @@ window.onload = function () {
               //divCard.append(anchor);
               var br = $("<br>")
               mediaContent.append(anchor).append(br);
-
-
-              /////
-
-
               //takes shelter Id to get address
               if (data.petfinder.pets.pet[i].shelterId.$t && data.petfinder.pets.pet[i].shelterId.$t !== "NC917") {
                 shelterId = data.petfinder.pets.pet[i].shelterId.$t;
@@ -308,10 +253,9 @@ window.onload = function () {
               }
             }
             var startLabel = $("<p>").text('Choose Starting Address').addClass("hide").attr("id", "startLabel" + i);
-            var startQ = $("<input>").addClass("input start hide").attr("id", "start" + i).attr("type", "text").attr("placeholder", "914 W Main St,Durham, NC 27701");
-            var startButton = $("<button>").addClass("button start-button hide").attr("id", "startBtn" + i).text("START");
+            var startQ = $("<input>").addClass("input start hide white lighten-2 black-text").attr("id", "start" + i).attr("type", "text").attr("placeholder", "914 W Main St,Durham, NC 27701");
+            var startButton = $("<button>").addClass("button start-button hide s12 inline").attr("id", "startBtn" + i).text("START");
             $(mediaContent).append(startLabel).append(startQ).append(startButton);
-
             $("#pet-div").append(rowContainer);
 
             street = data.petfinder.pets.pet[i].contact.address1.$t;
@@ -319,7 +263,6 @@ window.onload = function () {
             state = data.petfinder.pets.pet[i].contact.state.$t;
             mqQuery = street + ", " + city + ", " + state;
             localStorage.setItem(id, mqQuery);
-
           }
         }
       }
@@ -329,7 +272,6 @@ window.onload = function () {
 
   //uses shelterId to find the location of shelter
   function shelterFind(shelterId, id) {
-    console.log(shelterId, id)
     var url = "https://api.petfinder.com/shelter.get?key=2f95f51b181ddd27883e91878e922466" + "&id=" + shelterId + "&format=json";
 
     $.ajax({
@@ -339,7 +281,6 @@ window.onload = function () {
       error: function () {
       },
       success: function (data) {
-        console.log(data);
         if (data.petfinder.shelter) {
           lon = data.petfinder.shelter.longitude.$t;
           lat = data.petfinder.shelter.latitude.$t;
@@ -367,7 +308,6 @@ window.onload = function () {
         }
       }
       function error() {
-        console.log("not given location access by user");
         noGeo = true;
         noGeoloc(i);
 
@@ -385,16 +325,15 @@ window.onload = function () {
 
   //uses current location and desired destination to build a map with a route between these 2 points
   function buildMap(mqQuery) {
-
     L.mapquest.key = 'oKGNJy7554W39K4kH01ZGPwNamd85M0c';
-
     destination = mqQuery;
-    console.log(current, destination);
+    $("#mapID").removeClass("hide");
+
     // 'map' refers to a <div> element with the ID map
     L.mapquest.map('mapID', {
       center: [0, 0],
       layers: L.mapquest.tileLayer('map'),
-      zoom: 5
+      zoom: 12
     });
 
     L.mapquest.directions().route({
@@ -408,25 +347,19 @@ window.onload = function () {
 
   //adds step by step directions to find pet
   function printDirections(divId) {
-
     destination = mqQuery;
-
     var queryURL = "https://www.mapquestapi.com/directions/v2/route?key=oKGNJy7554W39K4kH01ZGPwNamd85M0c&from=" + current + "&to=" + destination;
 
-    console.log(queryURL);
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function (response) {
-      console.log(response);
 
       if (response.route) {
         directions = response.route.legs[0].maneuvers;
         var dirTitle = $("<h4>").text("Driving Directions");
         $("#" + divId).append("<hr>").append(dirTitle).append("<hr>");
-
         for (var i = 0; i < directions.length; i++) {
-          //dirArray.push(directions[i].narrative);
           if (i === directions.length - 1) {
             var dir = $("<p>").text(directions[i].narrative);
           }
@@ -436,10 +369,6 @@ window.onload = function () {
           $(dir).addClass("directions-step");
           $("#" + divId).append(dir).append;
         }
-
-      }
-      else {
-        console.log("Couldn't find directions");
       }
     });
   }
@@ -448,5 +377,4 @@ window.onload = function () {
   $(".delete").on("click", function () {
     $(".notification").addClass("hide");
   });
-
 };
