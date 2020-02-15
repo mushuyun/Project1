@@ -1,6 +1,8 @@
 
-                                     # Furry Friend Finder #
-Working with team members to create an API app. Our team use petfinder api to load cat and dog information for pet lovers who would like to adopt. Our team members are __Shuyun Mu (Sue), Alex Coulter, Gene Lee, Diantai Johnson.__
+                                         
+                                         **Furry Friend Finder**                                    
+                                         
+**Furry Friend Finder**. Working with team members to create an API app. Our team use petfinder api to load cat and dog information for pet lovers who would like to adopt. Our team members are __Shuyun Mu (Sue), Alex Coulter, Gene Lee, Diantai Johnson.__
 
 
 Here is the link for our webpage. https://mushuyun.github.io/Project1/
