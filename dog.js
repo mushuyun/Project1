@@ -8,6 +8,10 @@ window.onload = function () {
   var shelter = false;
   noGeo = false;
 
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+
 
   //Submit Button click event with text formatting and user error handling
   $("#submitBtn").on("click", function (event) {
@@ -167,7 +171,7 @@ window.onload = function () {
               var petAge = $("<p>").text("Age: " + data.petfinder.pets.pet[i].age.$t);
               var petSex = $("<p>").text("Sex: " + data.petfinder.pets.pet[i].sex.$t);
               var petLocation = $("<p>").text("Location: " + data.petfinder.pets.pet[i].contact.city.$t + ", " + data.petfinder.pets.pet[i].contact.state.$t + ", " + data.petfinder.pets.pet[i].contact.zip.$t);
-              var petEmail = $("<a>").attr("href", "mailto:" + data.petfinder.pets.pet[i].contact.email.$t).text("Email: " + data.petfinder.pets.pet[i].contact.email.$t);
+              var petEmail = $("<a id='lol'>").attr("href", "mailto:" + data.petfinder.pets.pet[i].contact.email.$t).text("Email: " + data.petfinder.pets.pet[i].contact.email.$t);
 
               // var animalLink = "https://www.petfinder.com/search/pets-for-adoption/?id=" + petId;
               // var anchor = $("<a>").attr("href", animalLink).attr('target', '_blank');
@@ -177,16 +181,16 @@ window.onload = function () {
               /////
 
               var rowContainer = $("<div>");
-              rowContainer.addClass("row column");
+              rowContainer.addClass("card");
               var divColumn = $("<div>");
               divColumn.addClass("column column");
               var divCard = $("<div>");
-              divCard.addClass("card is-horizontal");
+              divCard.addClass("card");
               var divCardImg = $("<div>");
               divCardImg.addClass("figure-content");
 
-              var figure = $("<figure>");
-              figure.addClass("image is-square is-200x200");
+              var figure = $("<div>");
+              figure.addClass("card-image");
               var img = $("<img>");
               img.addClass("img-size");
               img.attr("src", data.petfinder.pets.pet[i].media.photos.photo[2].$t);

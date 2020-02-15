@@ -2,132 +2,129 @@
 	<html lang="en">
 	
 	<head>
-	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-	  <title>Dogs&Cats Adoption</title>
-	  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-	    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-	    crossorigin="anonymous"></script>
-	  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-	  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-	  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
-	  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
-	  <link rel="stylesheet" type="text/css" href="styles/style.css">
+	   <!-- Compiled and minified CSS -->
+	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	   <!--Import Google Icon Font-->
+	   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	   <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap" rel="stylesheet">
+	   <!--Let browser know website is optimized for mobile-->
+	   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	   <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+	   <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+	   <link rel="stylesheet" type="text/css" href="styles/style.css">
 	</head>
 	
 
 	<body>
-	  <section class="hero is-primary">
-	    <div class="hero-body">
-	      <div class="container">
-	        <h1 class="title">
-	          Dogs
-	        </h1>
-	        <h2 class="subtitle">
-	          Adopt Your Pet Today!
-	        </h2>
-	        <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Start Over</a>
-	        </div>
-	      </div>
-	    </div>
-	  </section>
-
-
-	  <div class="container">
+		<body>
+			<nav>
+				<div class="nav-wrapper heads">
+				  <a href="index.html" class="brand-logo center">Furry Friend Finder</a>
+				  <ul id="nav-mobile" class="left hide-on-med-and-down">
+				  </ul>
+				</div>
+			</nav>
+			
+			<nav>
+				<div class="nav-wrapper breadcrumb">
+				  <div class="col s12">
+					<a href="index.html" class="breadcrumb">Home</a>
+					<a href="dog.html" class="breadcrumb">Dog Search</a>
+				  </div>
+				</div>
+			</nav>
 	
-	    <div id="dogDiv" class = "hide">
-	      <div id="dogContent"> </div>
-	      <img id="dogImg">
-	    </div>
+				<div class="container">
+	
+	
+					<div id="dogDiv" class="hide">
+						<div id="dogContent"> </div>
+						<img id="dogImg">
+					  </div>
+				  <!-- Page Content goes here -->
+				  <h1>Dog Search</h1>
+					<form>
+						<div class="control">
+							<select class="input" id="breed" type="text">
+								<option  value='0' >Select Breed</option> 
+								<option value='1'>Akbash</option> 
+								<option value='2'>American Bully</option> 
+								<option value='3'>Bloodhound</option> 
+								<option value='4'>Boxer</option> 
+								<option value='5'>Papillon</option> 
+								<option value='6'>Keeshond</option> 
+								<option value='7'>Schnoodle</option>
+								<option value='8'>Chihuahua</option> 
+								<option value='9'>Coonhound</option> 
+								<option value='10'>Rottweiler</option> 
+								<option value='11'>Dachshund</option> 
+								<option value='12'>English Shepherd</option> 
+								<option value='13'>Eskimo Dog</option> 
+								<option value='14'>Foxhound</option> 
+								<option value='15'>French Bulldog</option>
+								<option value='16'>Golden Retriever</option>
+								<option value='17'>Greyhound</option> 
+								<option value='18'>Harrier</option> 
+								<option value='19'>Husky</option>
+								<option value='20'>Pekingese</option> 
+								<option value='21'>Pointer</option>  
+							</select>
+						  </div>
+						<label for="Sex"></label>
+						<input type="text" id="sex" placeholder="Sex: M or F"><br>
+						<label for="Zip"></label>
+						<input type="text" id="zip" placeholder="Zip Code"><br>
+						
+					</form>
+					<button type="button" class="btn waves-effect waves-light" id="submitBtn">Search</button>
+					<button type="button" class="btn waves-effect waves-light" id="resetBtn">Reset</button>
+	
+					
+	
+	
+					<!--pet data renedered here-->
+					<div id="pet-div"></div>
+					<!--<div id="mapID"></div>-->
+	
+				</div>
 
-	    <div class="field">
-	      <label class="label">Breed</label>
-	      <div class="control">
-			<select class="input" id="breed" type="text">
-				<option value='0'>Select Breed</option> 
-				<option value='1'>Akbash</option> 
-				<option value='2'>American Bully</option> 
-				<option value='3'>Bloodhound</option> 
-				<option value='4'>Boxer</option> 
-				<option value='5'>Papillon</option> 
-				<option value='6'>Keeshond</option> 
-				<option value='7'>Schnoodle</option>
-				<option value='8'>Chihuahua</option> 
-				<option value='9'>Coonhound</option> 
-				<option value='10'>Dachshund</option> 
-				<option value='11'>Dachshund</option> 
-				<option value='12'>English Shepherd</option> 
-				<option value='13'>Eskimo Dog</option> 
-				<option value='14'>Foxhound</option> 
-				<option value='15'>French Bulldog</option>
-				<option value='16'>Golden Retriever</option>
-				<option value='17'>Greyhound</option> 
-				<option value='18'>Harrier</option> 
-				<option value='19'>Husky</option>
-				<option value='20'>Pekingese</option> 
-				<option value='21'>Pointer</option>  
-			</select>
-	      </div>
-	    </div>
+			
+	
+				
+	
+			<footer class="page-footer">
+				<div class="container">
+					<div class="row">
+					<div class="col l6 s12">
+					  <h5 class="white-text">Furry Friend Finder</h5>
+					  <p class="grey-text text-lighten-4 summary">Life is full of stresses, but your rescue animal is always there to listen. They won’t ever judge you or let you down. Taking some time to destress with your furry friends can help you unwind and keep you at peace. </p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+					  <h5 class="white-text">API Links</h5>
+					  <ul>
+						<li><a class="grey-text text-lighten-3" href="https://www.petfinder.com/developers/api-docs">Pet Finder API</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://thedogapi.com/">Dog API</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://thecatapi.com/">Cat API</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://developer.mapquest.com/">MapQuest API</a></li>
+					  </ul>
+					</div>
+				  </div>
+				</div>
+				<div class="footer-copyright">
+				  <div class="container">
+				  © 2020 Copyright Text
+				  <a class="grey-text text-lighten-4 right" href="https://github.com/mushuyun/Project1">UNC Bootcamp: Project 1 - Team 2</a>
+				  </div>
+				</div>
+			</footer>
 	
 
-	    <div class="field">
-	      <label class="label">Sex</label>
-	      <div class="control">
-	        <input class="input" id="sex" type="text" placeholder="M or F">
-	      </div>
-	    </div>
-	
-
-	    <div class="field">
-	      <label class="label">Zip Code</label>
-	      <div class="control">
-	        <input class="input" id="zip" type="text" placeholder="27713">
-	      </div>
-	    </div>
-	
-
-	    <div class="field">
-	      <div class="control">
-			<button class="button is-link" id="submitBtn">Submit</button>
-			<input class="button" type="reset" value="Reset Input" id="resetBtn">
-	      </div>
-	    </div>
-	
-
-	    <div class="notification is-danger is-light hide">
-	      <button class="delete"></button>
-	      <strong>Warning!</strong> Could not complete your pet request. Please try again.
-      </div>
-      <div class="notification is-danger is-light hide">
-        <button class="delete"></button>
-        <strong>Warning!</strong> Could not complete your pet request. Please try again.
-      </div>
-	   
-	  
-	    <!--pet data renedered here-->
-	    <div id="pet-div"></div>
-	    <!--<div id="mapID"></div>-->
-	  </div>
-	  
-	  <footer class="footer">
-	    <div class="content has-text-centered">
-	      <p>
-	        <strong>'Furry Friend Finder' &copy;2020</strong>
-	      </p>
-	    </div>
-	
-
-	  </footer>
-	
-
-	  <!--  Scripts-->
+	  <!--Scripts: JavaScript at end of body for optimized loading-->
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	  <script type="text/javascript" src="dog.js"></script>
-	  <script type="text/javascript" src="dogApi.js"></script>
-	  
+	  <!-- Compiled and minified JavaScript -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	  <script src="dog.js"></script>
+	  <script src="dogapi.js"></script>
 	</body>
 	
 	</html>

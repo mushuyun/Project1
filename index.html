@@ -1,60 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<html lang="en">
+	
+	<head>
+	   <!-- Compiled and minified CSS -->
+	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	   <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap" rel="stylesheet">
+	   <!--Let browser know website is optimized for mobile-->
+	   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	   <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+	   <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+	   <link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	
+
+	<body class="landing">
+			<nav>
+				<div class="nav-wrapper heads">
+				  <a href="index.html" class="brand-logo center">Furry Friend Finder</a>
+				  <ul id="nav-mobile" class="left hide-on-med-and-down">
+				  </ul>
+				</div>
+            </nav>
+            
+            <nav>
+				<div class="nav-wrapper breadcrumb">
+				  <div class="col s12">
+					<a href="index.html" class="breadcrumb">Home</a>
+				  </div>
+				</div>
+			</nav>
+		
+	
+				<div style="text-align:center;" class="container">
+	
+                    <form style="display: inline" action="dog.html" method="get">
+                        <button>Dog Search</button>
+                      </form>
+                      <form style="display: inline" action="cat.html" method="get">
+                        <button>Cat Search</button>
+                      </form>
+					
+                </div>
+                
+                <div class = "row"  display = "inline-block">
+                            <div class="col s4">
+                              <a href="dog.html" id="dog-image" alt="dogs"><img src="styles/images/dog-sm.png"></a>
+                            </div>
+                            <div class="col s4">
+                              </div>
+                          
+                            <div class="col s4">
+                              <a href="cat.html" id="cat-image" alt="cats"><img src="styles/images/cat-sm.png"></a>
+                            </div>
+                </div>
+	
+				
+	
+			<footer class="page-footer">
+				<div class="container">
+					<div class="row">
+					<div class="col l6 s12">
+					  <h5 class="white-text">Furry Friend Finder</h5>
+					  <p class="grey-text text-lighten-4 summary">Life is full of stresses, but your rescue animal is always there to listen. They won’t ever judge you or let you down. Taking some time to destress with your furry friends can help you unwind and keep you at peace. </p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+					  <h5 class="white-text">API Links</h5>
+					  <ul>
+						<li><a class="grey-text text-lighten-3" href="https://www.petfinder.com/developers/api-docs">Pet Finder API</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://thedogapi.com/">Dog API</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://thecatapi.com/">Cat API</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://developer.mapquest.com/">MapQuest API</a></li>
+					  </ul>
+					</div>
+				  </div>
+				</div>
+				<div class="footer-copyright">
+				  <div class="container">
+				  © 2020 Copyright Text
+				  <a class="grey-text text-lighten-4 right" href="https://github.com/mushuyun/Project1">UNC Bootcamp: Project 1 - Team 2</a>
+				  </div>
+				</div>
+			</footer>
+	
+
+	  <!--Scripts: JavaScript at end of body for optimized loading-->
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	  <!-- Compiled and minified JavaScript -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	  <script src="dog.js"></script>
+	  <script src="dogapi.js"></script>
+	</body>
+	
+	</html>
+
   
- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <title>Dogs&Cats Adoption</title>
-
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-  <link rel="stylesheet" type="text/css" href="./styles/dog.css">
-  
- 
-</head>
-<body>
-  <section class="hero is-primary">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Furry Friend Finder
-      </h1>
-      <h2 class="subtitle">
-        Adopt Your Pet Today!
-      </h2>
-      <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo"></a>
-      </div>
-    </div>
-  </section>
-
-  <div class = "container-main">
-    <div class = "row center-align"  display = "inline-block">
-        <div class="col is-6">
-          <a href="dog.html" id="dog-image" alt="dogs"><img src="styles/images/dog-sm.png"></a>
-        </div>
-      
-        <div class="col is-6">
-          <a href="cat.html" id="cat-image" alt="cats"><img src="styles/images/cat-sm.png"></a>
-        </div>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Furry Friends Finder &copy;2020</strong>
-      </p>
-    </div>
-  </footer>
-
-  <!--  Scripts-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="dog.js"></script>
-
-  </body>
-</html>
