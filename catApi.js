@@ -46,7 +46,7 @@ function catSearch(catBreed) {
             $(".catChoiceBtn").remove();
             $(choice).remove();
             j = i;
-            $("#catContent").prepend("<p>Life Span: " + response[j].life_span + " years</p>");
+            $("#catContent").prepend("<p>Life Span: " + response[j].life_span + "</p>");
             $("#catContent").prepend("<p>Weight: " + response[j].weight.imperial + " lbs</p>");
             $("#catContent").prepend("<p>Temperament: " + response[j].temperament + "</p>");
             $("#catContent").prepend("<h4>" + response[j].name + "</h4>");

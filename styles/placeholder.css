@@ -1,55 +1,29 @@
 .breadcrumb{
-	background-color:#26a69a !important;
-	padding-left:10px;
+    background-color:#26a69a !important;
    }
 
 .page-footer {
     padding-top:20px;
-	margin-top:240px;
-	background-color:#0388A6;
+    margin-top:240px;
 }
 
 .container {
-    max-width:560px;
+    max-width:960px;
 }
 
-.heads {
-	background-color:#0388A6;
-}
-
-h1, h4, h2, .summary, .brand-logo {
-	font-family: 'Just Another Hand', cursive;
-}
-
-.summary {
-	font-size:36px;
-}
-
-.brand-logo {
-	font-size:60px !important;
-}
 
 #mapID {
-	width: 100%;
+	width: 50%;
 	height: 300px;
 	float:right;
 	text-align:center;
+	position:relative;
    	top:0;
    	right:0;
   }
 
   #dog-image {
-	padding: 50px;
-	float:left;
-	position: relative;
-	left:0;
-  }
-
-  #cat-image {
-	padding: 50px;
-	float:right;
-	position: relative;
-	right:0;
+    padding: 50px;
   }
   
   #mapInfo {
@@ -62,8 +36,7 @@ h1, h4, h2, .summary, .brand-logo {
 
   .card {
       color:black;
-	  box-shadow: 5px 5px rgba(0,0,0,.5);
-	  background-color:#77BDD9;
+      box-shadow: 5px 5px rgba(0,0,0,.5);
   }
 
   .card {
@@ -79,7 +52,8 @@ h1, h4, h2, .summary, .brand-logo {
 	width: 50%;
 	height: 300px;
 	float:left;
-	position: relative;
+	text-align:center;
+	position:relative;
    	top:0;
    	left:0;
 
@@ -91,7 +65,7 @@ h1, h4, h2, .summary, .brand-logo {
     padding: 10px;
     margin:0 auto;
     margin-top:10px;
-    background: #77BDD9;
+    background: #ee6e73;
     color: white;
     box-shadow: 10px 10px rgba(0,0,0,.5);
   }
@@ -100,13 +74,6 @@ h1, h4, h2, .summary, .brand-logo {
 	  color:black;
   }
 
-  input, input:focus { 
-    color: white;
-}
-
-label{
-    color: white;
-}
  
 
   button {
@@ -168,18 +135,8 @@ h1{
 }
 
 
-
-
 	body {
 		background: url("https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-	   }
-
-	   .landing {
-		background: url("https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -192,8 +149,4 @@ h1{
 
 	  .select-dropdown{
 		color: white;
-	}
-
-	 p{
-		padding-left:5px;
 	}

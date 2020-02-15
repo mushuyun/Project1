@@ -34,7 +34,7 @@ function dogSearch(breed) {
                 breedId = response[i].id;
                 $(".dogChoiceBtn").remove();
                 $(choice).remove();
-                $("#dogContent").prepend("<p>Life Span: " + response[i].life_span + " years</p>");
+                $("#dogContent").prepend("<p>Life Span: " + response[i].life_span + "</p>");  
                 $("#dogContent").prepend("<p>Weight: " + response[i].weight.imperial + " lbs</p>")
                 $("#dogContent").prepend("<p>Temperament: " + response[i].temperament + "</p>");
                 $("#dogContent").prepend("<h4>" + response[i].name + "</h4>");
