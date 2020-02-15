@@ -59,7 +59,14 @@ footer {
     display: none;
   }
 
+<<<<<<< HEAD
+  #resetBtn{
+		background-color: rgb(207, 198, 198);
+		color: rgb(221, 51, 9);
+	}
+=======
 #resetBtn{
 		background-color: rgb(207, 198, 198);
 		color: rgb(221, 51, 9);
 	}
+>>>>>>> 3a4dd8b402f3845fa49ad02968302700df1bc03d
