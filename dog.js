@@ -18,7 +18,10 @@ window.onload = function () {
     $("#catContent").empty();
 
     breedType = $("#breed").children("option:selected").text()
-    breedType = formatBreed(breedType);
+    if (breedType == "Select Breed") {
+      breedType = "";
+    }
+    //breedType = formatBreed(breedType);
     console.log(breedType);
     sex = $("#sex").val().toUpperCase();
     if (sex !== "M" && sex !== "F" && sex !== "") {
@@ -67,6 +70,7 @@ window.onload = function () {
   $(document).on("click", "#directionsBtn", function (event) {
     event.preventDefault();
 
+    
     var i = $(this).parent("div").attr("id");
     mqQuery = localStorage.getItem(i);
     $("#startBtn" + i).text("Get Directions");
@@ -76,7 +80,7 @@ window.onload = function () {
     else {
       geoLoc(i);
     }
-
+    $(this).remove();
   });
 
 
@@ -110,15 +114,6 @@ window.onload = function () {
   });
 
 
-  //Makes all letters lowercase except 1st in every word
-  function formatBreed(breed) {
-    var breed = $("#breed").children("option:selected").text();
-    var splitStr = breed.toLowerCase().split(' ');
-    for (var i = 0; i < splitStr.length; i++) {
-      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-    }
-    return splitStr.join(' ');
-  }
 
   //add event listener to resetBtn
 
@@ -127,7 +122,7 @@ window.onload = function () {
     $('input[id=sex]').val('');
     $('input[id=zip]').val('');
      
-    $("#breed").children("option:selected").val() = "0";
+    //$("#breed").children("option:selected").val() = "0";
     
   });
 
@@ -147,7 +142,7 @@ window.onload = function () {
         console.log(data);
 
         if (!data.petfinder.pets || !data.petfinder.pets.pet) {
-          $(".notificatione").removeClass("hide");
+          $(".notification").removeClass("hide");
         }
         else {
           $(".notification").addClass("hide");

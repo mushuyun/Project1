@@ -12,7 +12,7 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
   <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-  <link rel="stylesheet" type="text/css" href="./styles/cat.css">   
+  <link rel="stylesheet" type="text/css" href="./styles/style.css">   
 </head>
 <body>
     <section class="hero is-primary">
@@ -89,6 +89,10 @@
                 <button class="button is-link" id="submitBtn">Submit</button>
                 <input class="button" type="reset" value="Reset Input" id="resetBtn">
               </div>
+            </div>
+            <div class="notification is-danger is-light hide">
+              <button class="delete"></button>
+              <strong>Warning!</strong> Could not complete your pet request. Please try again.
             </div>
         <!--pet data renedered here-->
             <div id="pet-div"></div>
