@@ -17,11 +17,13 @@ var L;
 	    $("#sex").attr("style", "color: black");
 	    $("#pet-div").empty();
 	    $("#catContent").empty();
-	    $("#catDiv").removeClass("hide");
+	    
 	
 
 	    breedType = $("#breed").children("option:selected").text();
-	    breedType = formatBreed(breedType);
+      if (breedType == "Select Breed") {
+        breedType = "";
+      }
 	    console.log(breedType);
 	    sex = $("#sex").val().toUpperCase();
 	    if (sex !== "M" && sex !== "F" && sex !== "") {
@@ -46,13 +48,10 @@ var L;
 	  //Map display button click event
 	  $(document).on("click", "#mapBtn", function (event) {
 	    event.preventDefault();
-	    console.log("map buttonnnnnnnnnn");
 	    wantMap = true;
 	    $("#mapID").remove();
 	    mapDiv = $("<div>").attr("id", "mapID");
 	    $(this).parent("div").prepend(mapDiv);
-	    console.log($(this).parent("div"));
-	
 
 	    var i = $(this).parent("div").attr("id");
 	    console.log(i);
@@ -84,7 +83,7 @@ var L;
 	    else {
 	      geoLoc(i);
 	    }
-	
+      $(this).remove();
 
 	  });
 	
@@ -156,17 +155,17 @@ var L;
 	      dataType: "jsonp",
 	      type: "GET",
 	      error: function () {
-	        $("article").removeClass("hide");
+	        $(".notification").removeClass("hide");
 	      },
 	      success: function (data) {
 	        console.log(data);
 	
 
 	        if (!data.petfinder.pets || !data.petfinder.pets.pet) {
-	          $("article").removeClass("hide");
+	          $(".notification").removeClass("hide");
 	        }
 	        else {
-	          $("article").addClass("hide");
+	          $(".notification").addClass("hide");
 	          for (var i = 0; i < data.petfinder.pets.pet.length; i++) {
 	            if (data.petfinder.pets.pet[i].media.photos) {
 	              var id = i;
@@ -514,8 +513,24 @@ var L;
 
 	  //removes incorrect input warning when user clicks the 'X'
 	  $(".delete").on("click", function () {
-	    $("article").addClass("hide");
+	    $(".notification").addClass("hide");
 	  });
 	
 
 	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

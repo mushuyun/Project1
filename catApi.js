@@ -4,7 +4,7 @@ var breedId;
 var wantedBreed;
 
 function catSearch(catBreed) {
-console.log("cattttt");
+
   var queryURL = "https://api.thecatapi.com/v1/breeds/search?q=" + catBreed + "&api_key=89916d17-0951-4678-b49b-662c62818c70";
 
   $.ajax({
@@ -16,11 +16,13 @@ console.log("cattttt");
     $("#catContent").empty();
     $("#catImg").attr("src", "");
     if (!response[0]) {
-      $(".notification").removeClass("hide");
+      
+      
     }
-   
+    
     else if (response.length > 1) {
       
+      $("#catDiv").removeClass("hide");
       var choice = $("<p>").text("Choose which cat breed you wanted:");
       $("#catContent").append(choice);
       for (var i = 0; i < response.length; i++) {
@@ -52,14 +54,14 @@ console.log("cattttt");
         }
         
         catImgSearch(breedId);
-        $("#catDiv").removeClass("hide");
-
+        
       });
     }
     else if (response.length = 1) {
       console.log("You wanted: " + response[0].name);
       breedId = response[0].id;
       console.log(breedId + "breedID");
+      $("#catDiv").removeClass("hide");
       catImgSearch(breedId);
       $("#catContent").prepend("<p>Life Span: " + response[j].life_span + " years</p>");
       $("#catContent").prepend("<p>Weight: " + response[j].weight.imperial + " lbs</p>");
@@ -67,7 +69,7 @@ console.log("cattttt");
       $("#catContent").prepend("<h4>" + response[j].name + "</h4>");
       
       catImgSearch(breedId);
-      $("#catDiv").removeClass("hide");
+      
     }
 
   });
