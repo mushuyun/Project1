@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Dogs&Cats Adoption</title>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -12,9 +12,7 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
   <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-
   <link rel="stylesheet" type="text/css" href="./styles/cat.css">   
-
 </head>
 <body>
     <section class="hero is-primary">
@@ -32,12 +30,15 @@
         </div>
         </section>
 
+
         <div class="container">
+
 
           <div id="catDiv" class = "hide">
             <div id="catContent"> </div>
             <img id="catImg">
           </div>
+
 
             <div class="field">
               <label class="label">Breed</label>
@@ -88,18 +89,6 @@
                 <button class="button is-link" id="submitBtn">Submit</button>
                 <input class="button" type="reset" value="Reset Input" id="resetBtn">
               </div>
-
-        <div class="container">
-
-          <div id="catDiv" class = "hide">
-            <div id="catContent"> </div>
-            <img id="catImg">
-          </div>
-
-            <div class="notification is-danger is-light hide">
-              <button class="delete"></button>
-              <strong>Warning!</strong> Could not complete your pet request. Please try again.
-
             </div>
         <!--pet data renedered here-->
             <div id="pet-div"></div>
@@ -109,7 +98,7 @@
         <footer class="footer">
           <div class="content has-text-centered">
             <p>
-              <strong>'Furry Friend Finder' &copy;2020</strong>
+              <strong>Dogs&Cats Copyright &copy;2020</strong>
             </p>
           </div>
         </footer>
@@ -121,3 +110,4 @@
     <script type="text/javascript" src=catApi.js></script>
 </body>
 </html>
+
