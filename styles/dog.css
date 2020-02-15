@@ -65,7 +65,6 @@ p, a {
 	.hero {
 	  margin-bottom: 20px;
 	}
-	
 
 	#mapID {
 	  width: 50%;
@@ -112,3 +111,7 @@ p, a {
 	}
 
 
+	#resetBtn{
+		background-color: rgb(207, 198, 198);
+		color: rgb(221, 51, 9);
+	}
