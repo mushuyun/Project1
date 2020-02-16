@@ -14,8 +14,6 @@
 	   <link rel="stylesheet" type="text/css" href="styles/style.css">
 	</head>
 	
-
-	<body>
 		<body>
 			<nav>
 				<div class="nav-wrapper heads">
@@ -36,12 +34,10 @@
 	
 				<div class="container">
 	
-	
-					
-          <div id="catDiv" class = "hide">
-            <div id="catContent"> </div>
-            <img id="catImg">
-          </div>
+					<div id="catDiv" class="hide">
+						<div id="catContent"> </div>
+						<img id="catImg">
+					  </div>
 
 				  <!-- Page Content goes here -->
 				  <h1>Cat Search</h1>
@@ -79,18 +75,18 @@
 						
 					</form>
 					<button type="button" class="btn waves-effect waves-light" id="submitBtn">Search</button>
-					<button type="button" class="btn waves-effect waves-light" id="resetBtn">Reset</button>
-	
-					
-	
+          <button type="button" class="btn waves-effect waves-light" id="resetBtn">Reset</button>
+          
+          <div class="notification is-danger is-light hide">
+            <button class="delete"></button>
+            <strong>Warning!</strong> Could not complete your pet request. Please try again.
+          </div>
 	
 					<!--pet data renedered here-->
 					<div id="pet-div"></div>
 					<!--<div id="mapID"></div>-->
 	
 				</div>
-	
-				
 	
 			<footer class="page-footer">
 				<div class="container">
